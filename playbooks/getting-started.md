@@ -1,6 +1,6 @@
 # first-agent-architecture-review
 
-Use when
+## Use when
 
 - review this agent architecture
 - is this an agent or a chatbot
@@ -11,15 +11,17 @@ Use when
 - ReAct loop is looping
 - getting started with an AI agent
 
+## Steps
+
 Copy the numbered steps into the todolist before reasoning. If a step does not apply, keep it listed with a one-line skip reason. Do not delete it.
 
-## 0. Name the data shape
+### 0. Name the data shape
 
-Open `references/data-shapes.md`. Name the getting-started shape before writing loop logic. Agent sits inside. Environment sits outside. Every model call is a frozen prefix plus an append-only trajectory.
+Open [data shapes](../references/data-shapes.md). Name the getting-started shape before writing loop logic. Agent sits inside. Environment sits outside. Every model call is a frozen prefix plus an append-only trajectory.
 
 Skip this step only when the current review note already names that shape in those words.
 
-## 1. Draw Agent versus Environment
+### 1. Draw Agent versus Environment
 
 Draw two boxes. Place the model, context assembly, and tool adapters inside Agent. Place files, users, pages, databases, and other agents in Environment. Harness policy stays inside Agent. World state and transition rules stay in Environment.
 
@@ -29,7 +31,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `agent-formula-
 
 Skip when a current diagram already places those three insides and names Environment as a peer.
 
-## 2. Inventory observation sources and action ports
+### 2. Inventory observation sources and action ports
 
 List facts that can enter context. List operations that can change the world. Treat unseen facts as nonexistent to the model. Treat unexposed operations as speech-only recommendations. Expand a missing space before swapping the model.
 
@@ -39,7 +41,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `expand-spaces-
 
 Skip when the last experiment log already tried an interface change with the model held fixed.
 
-## 3. Classify tools by interaction direction
+### 3. Classify tools by interaction direction
 
 Sort every interface into perception, execution, collaboration, event, or user communication. Register event triggers as inbound starts. Do not wait for the model to invoke the clock or the inbox. Route explore work to general executors. Route money, delete, send, and prod-deploy to specialized auditable tools.
 
@@ -49,7 +51,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `five-tool-type
 
 Skip when the live catalog already carries those five tags and inbound events start the loop.
 
-## 4. Confirm prefix plus full trajectory
+### 4. Confirm prefix plus full trajectory
 
 Confirm every model call is the stable prefix plus the entire trajectory so far. Append tool results. Do not send only the last result. Do not mutate the system prompt each turn.
 
@@ -59,7 +61,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `react-reason-a
 
 Skip when a dumped pair of consecutive calls already proves prefix identity and full trajectory replay.
 
-## 5. Trace one run as reason, act, observe
+### 5. Trace one run as reason, act, observe
 
 Walk one recorded run. Label each iteration as reason, act, or observe. Let the model emit the next decision. Let the harness validate calls. Let the environment execute and return observations. Fan out independent calls in one iteration. Add a hard round cap and a repeat-call fingerprint.
 
@@ -69,7 +71,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `react-reason-a
 
 Skip when a golden trajectory already shows those labels, a stop test, and one parallel fan-out.
 
-## 6. Map the five harness jobs
+### 6. Map the five harness jobs
 
 Map code to context, tools, constrain, verify, and correct. Default capabilities off. Verify on structured tool fields and environment state, never on assistant prose. Recover or roll back without showing half-finished artifacts.
 
@@ -79,7 +81,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `harness-five-r
 
 Skip when the five-module map and the three checks already exist for the current revision.
 
-## 7. Choose the lowest orchestration rung
+### 7. Choose the lowest orchestration rung
 
 Try one call if prompts and examples suffice. Encode a known sequence as a workflow. Mix a workflow spine with autonomous joints when compliance and surprise both exist. Use a ReAct loop only when the next step must follow live feedback. Price latency as rounds times per-round generation time.
 
@@ -89,7 +91,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `escalate-to-ag
 
 Skip when the live graph already records the rung, the cost budget, and a coded illegal-order test.
 
-## 8. Place three guardrail layers
+### 8. Place three guardrail layers
 
 Place rails on context, execution, and data. Treat context rails as rate reducers, not guarantees. Score tool-plus-arguments outside the working context. Keep row policy in a trusted data plane. Add human handover on retry caps and irreversible ops. Pause rather than default-approve if the human is silent. Score both block-rate on prohibited items and completion-rate on permitted sensitive items.
 
@@ -99,7 +101,7 @@ If the check fails, open `lessons/01-getting-started.md` cluster `layered-guardr
 
 Skip when the threat model, the dual safety eval, and the handover test already pass.
 
-## 9. Apply the five patterns
+### 9. Apply the five patterns
 
 Separate reviewer context from producer context. Disclose a catalog first and load bodies on demand. Append facts, events, and schemas. Score a boundary set and a retention set on every change. Ship the smallest attributed, reversible diff.
 
@@ -111,9 +113,9 @@ Skip when all five checks already pass on the current revision.
 
 ## Open next
 
-- `playbooks/context-engineering.md` when prefix stability, skills, compression, or injection wrapping is the next gap.
-- `playbooks/tools.md` when schemas, disclosure, perception grain, or execution safety is the next gap.
-- `playbooks/evaluating-agents.md` when a change needs a scored claim.
+- [Context engineering](context-engineering.md) when prefix stability, skills, compression, or injection wrapping is the next gap.
+- [Tools](tools.md) when schemas, disclosure, perception grain, or execution safety is the next gap.
+- [Evaluating agents](evaluating-agents.md) when a change needs a scored claim.
 
 Do not open two lesson files to start.
 

@@ -16,21 +16,23 @@ Review or design the agent tool surface. Copy these steps into the todolist befo
 - HITL approval hang
 - review tool descriptions
 
-## 0. Name the data shape
+## Steps
 
-Name the form-by-disclosure registry before writing a schema or a skill. Each capability stores a form field, dedicated or general executor or skill, and a separate disclosure field, resident or indexed or discover-on-gap or skill-lookup. Lookup the row in `references/data-shapes.md`. Do not infer form from how many schemas sit in the prefix.
+### 0. Name the data shape
 
-If the registry lacks both fields, open `lessons/04-tools.md` cluster `form-vs-disclosure-independent`. source-ids: form-vs-disclosure-independent, choose-form-on-four-dimensions.
+Name the form-by-disclosure registry before writing a schema or a skill. Each capability stores a form field, dedicated or general executor or skill, and a separate disclosure field, resident or indexed or discover-on-gap or skill-lookup. Look up the row in [data shapes](../references/data-shapes.md). Do not infer form from how many schemas sit in the prefix.
 
-## 1. Classify, then stop on deferred categories
+If the registry lacks both fields, open [lesson 04](../lessons/04-tools.md) cluster `form-vs-disclosure-independent`. source-ids: form-vs-disclosure-independent, choose-form-on-four-dimensions.
+
+### 1. Classify, then stop on deferred categories
 
 Tag invocation direction and target of action. Map the pair to perception, execution, collaboration, event-triggered, or user communication. Those two fields are a placement aid, not a twenty-five-cell grid.
 
-**Hard stop.** Event-triggered and user-communication tools do not ship in the proactive loop. Tag them `deferred-to-async-runtime`. Give them no sync execute path here. Skip remaining steps in this playbook. Open `playbooks/interaction.md`. Cluster `defer-event-and-user-comm-tools` in `lessons/04-tools.md`. source-ids: defer-event-and-user-comm-tools, five-category-invocation-and-target, event-tools-register-then-trigger, user-comm-as-explicit-tool-call.
+**Hard stop.** Event-triggered and user-communication tools do not ship in the proactive loop. Tag them `deferred-to-async-runtime`. Give them no sync execute path here. Skip remaining steps in this playbook. Open [Interaction](interaction.md). Cluster `defer-event-and-user-comm-tools` in [lesson 04](../lessons/04-tools.md). source-ids: defer-event-and-user-comm-tools, five-category-invocation-and-target, event-tools-register-then-trigger, user-comm-as-explicit-tool-call.
 
 Skip this stop when the capability is perception, execution, or collaboration. Continue.
 
-## 2. Pick form on four dimensions
+### 2. Pick form on four dimensions
 
 Skip if step 1 stopped on a deferred category.
 
@@ -40,7 +42,7 @@ Record disclosure as a second field. A cheap skill catalog line does not pick fo
 
 If a leftover dedicated tool has no exception note, open `lessons/04-tools.md` cluster `choose-form-on-four-dimensions`. source-ids: choose-form-on-four-dimensions, prefer-general-executors-default, dedicated-for-security-permissions-audit, design-aci-around-agent-goals.
 
-## 3. Write when, cannot, examples, return, cost
+### 3. Write when, cannot, examples, return, and cost
 
 Skip if step 1 stopped on a deferred category.
 
@@ -48,7 +50,7 @@ Lead with the decision rule for when to call. State refused jobs and the sibling
 
 If a description is only a capability paraphrase, open `lessons/04-tools.md` cluster `describe-when-not-just-what`. source-ids: describe-when-not-just-what, state-boundaries-and-refusals, describe-skills-like-tools.
 
-## 4. Prove argument fidelity
+### 4. Prove argument fidelity
 
 Skip if step 1 stopped on a deferred category.
 
@@ -56,7 +58,7 @@ Run read-then-edit on the exact snippet the read tool returned. Run write-then-r
 
 If edit cannot match text the model just read, open `lessons/04-tools.md` cluster `never-silently-rewrite-arguments`. source-ids: never-silently-rewrite-arguments, never-silently-inject-arguments, keep-perceived-world-identical-to-tool-world.
 
-## 5. Review third-party sources
+### 5. Review third-party sources
 
 Skip if every capability is first-party and no hub or MCP install is in scope. Skip if step 1 stopped on a deferred category.
 
@@ -64,7 +66,7 @@ Treat descriptions as untrusted text that enters context every session. Pin vers
 
 If an install has floating versions or a shared god token, open `lessons/04-tools.md` cluster `treat-tool-descriptions-as-untrusted-input`. source-ids: treat-tool-descriptions-as-untrusted-input, pin-third-party-versions-and-re-review, prevent-same-name-tool-shadowing, lethal-triad-for-mcp-combo-risk.
 
-## 6. Choose a disclosure layer
+### 6. Choose a disclosure layer
 
 Skip if the resident catalog is a few dozen or fewer and selection is already reliable. Skip if step 1 stopped on a deferred category.
 
@@ -72,7 +74,7 @@ Escalate in this order. Hierarchical index, load a full schema on inspect. Gap-d
 
 If turn-zero still injects a flat hundred-plus list, open `lessons/04-tools.md` cluster `three-disclosure-layers-load-discover-lookup`. source-ids: three-disclosure-layers-load-discover-lookup, scale-degrades-selection-and-cache, declare-capability-gap-then-inject, progressive-disclosure-catalog-then-body.
 
-## 7. Grain perception
+### 7. Grain perception
 
 Skip if the capability under review is not perception. Skip if step 1 stopped on a deferred category.
 
@@ -80,7 +82,7 @@ Return paged candidates from search. Support offset and limit on read. Announce 
 
 If search dumps full documents or a clip is silent, open `lessons/04-tools.md` cluster `perception-design-focus-granularity`. source-ids: perception-design-focus-granularity, search-return-candidates-then-page, read-with-offset-and-visible-truncation, pick-among-three-multimodal-paths.
 
-## 8. Stack execution safety
+### 8. Stack execution safety
 
 Skip if the capability under review is not execution. Skip if step 1 stopped on a deferred category.
 
@@ -88,7 +90,7 @@ Fail fast on path traversal, injection, and type errors. Do not smart-correct a 
 
 If a world-changing wrapper has only a happy-path description, open `lessons/04-tools.md` cluster `fail-fast-validate-inputs-without-correction`. source-ids: fail-fast-validate-inputs-without-correction, sidecar-classifies-structured-call-fields-only, scale-isolation-process-container-microvm, two-phase-confirm-non-idempotent-side-effects.
 
-## 9. Ship collaboration primitives
+### 9. Ship collaboration primitives
 
 Skip if the capability under review is not collaboration. Skip if step 1 stopped on a deferred category.
 
@@ -98,8 +100,8 @@ If spawn exists without cancel, or approval can hang forever, open `lessons/04-t
 
 ## Open next
 
-- Deferred event or user-communication work. `playbooks/interaction.md`.
-- A capability minted as generated code, adapter, or UI. `playbooks/coding-agent.md`.
+- [Interaction](interaction.md) for deferred event or user-communication work.
+- [Coding agent](coding-agent.md) for a capability minted as generated code, adapter, or UI.
 
 ## Reply
 

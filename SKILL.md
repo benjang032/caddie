@@ -1,13 +1,14 @@
 ---
 name: ai-agents-in-depth
 description: >-
-  Design, review, and improve LLM agents using Agent = LLM + Context + Tools
-  and Agent = Model + Harness. Use when the user asks to build an agent, design
-  a harness, do context engineering, write agent skills or tools, add memory or
-  RAG, evaluate an agent, post-train or continually evolve one, or design
-  multi-agent collaboration. Also trigger on ReAct, KV cache, tool discovery,
-  coding agents, computer use, LLM-as-judge, SFT vs RL, A2A, or a model drop.
-disable-model-invocation: true
+  Design, review, or improve LLM agents and their harnesses: context, tools,
+  memory or RAG, evaluation, post-training, continual evolution, and
+  multi-agent systems. Use for substantive agent architecture or implementation
+  work, and for targeted technical questions about ReAct, prompt or KV-cache
+  design, MCP/tool design, coding agents, interaction, evaluation, SFT/RL,
+  A2A, or model drops. Do not use for ordinary software work, routine computer
+  use, generic coding questions, or casual definitions that do not require this
+  curriculum.
 ---
 
 # AI Agents in Depth
@@ -16,11 +17,14 @@ Instructional skill distilled from Bojie Li, *AI Agents in Depth* (Apache-2.0, [
 
 ## Start
 
-Match the task to a playbook below. Open that file. Copy its steps into the todolist before reasoning. Read a lesson file only when the playbook names a cluster.
+Choose one route before reasoning.
+
+- **Answer-only:** A casual or formula-only definition stays in this file; do not open a lesson, playbook, or todolist. For a curriculum-backed, scoped technical explanation or comparison, open only the matching lesson cluster or clusters below. Do not open a playbook or copy steps into the todolist.
+- **Implementation or review:** Match the task to a playbook below. Open that file and copy its steps into the todolist before reasoning. Read a lesson file only when the playbook names a cluster.
 
 Curriculum depth lives in [lessons/00-introduction.md](lessons/00-introduction.md). Do not hunt for `orient-agent-build.md`. That route is this file.
 
-If the task spans chapters, stay here for the formula and the table. Then open one playbook per concern.
+If an implementation or review task spans chapters, stay here for the formula and the table. Then open one playbook per concern.
 
 ## Formula
 
@@ -34,7 +38,25 @@ A production agent is `Model + Harness`. Harness is context management, tool int
 
 Chapters 1–6 build the agent. Chapters 7–10 raise it.
 
-## Route
+## Answer-only route
+
+| When the question is about | Open only |
+| --- | --- |
+| First agents, ReAct, workflow vs autonomous, harnesses, guardrails | [lessons/01-getting-started.md](lessons/01-getting-started.md) |
+| Prompts, KV cache, skills in context, compression, prompt injection | [lessons/02-context-engineering.md](lessons/02-context-engineering.md) |
+| User memory, RAG, indexes, knowledge files, privacy | [lessons/03-memory-knowledge.md](lessons/03-memory-knowledge.md) |
+| Tool schemas, MCP, discovery, perception vs execution, sidecars, HITL | [lessons/04-tools.md](lessons/04-tools.md) |
+| Coding agents, search/edit, code as meta-capability, generative UI, adapters | [lessons/05-coding-agent.md](lessons/05-coding-agent.md) |
+| Async events, voice, computer use, robots, observation/action timing | [lessons/06-interaction.md](lessons/06-interaction.md) |
+| Eval environments, judges, attribution, cost, observability | [lessons/07-evaluating-agents.md](lessons/07-evaluating-agents.md) |
+| Mid-training, SFT, RL, rewards, distillation | [lessons/08-post-training.md](lessons/08-post-training.md) |
+| Learning from trajectories into knowledge, instructions, programs, or weights | [lessons/09-continual-evolution.md](lessons/09-continual-evolution.md) |
+| Shared vs isolated context, manager/peer/decentralized, A2A, failure modes | [lessons/10-multi-agent.md](lessons/10-multi-agent.md) |
+| A model drop or durable questions after one | [lessons/11-afterword.md](lessons/11-afterword.md) |
+
+Multi-topic answer-only questions may open the matching lesson clusters, still without a playbook or todolist. A casual or formula-only definition stays on this file.
+
+## Implementation and review route
 
 | When the work is | Open |
 | --- | --- |
@@ -49,7 +71,7 @@ Chapters 1–6 build the agent. Chapters 7–10 raise it.
 | Learning from trajectories into knowledge, instructions, programs, or weights | [playbooks/continual-evolution.md](playbooks/continual-evolution.md) |
 | Shared vs isolated context, manager/peer/decentralized, A2A, failure modes | [playbooks/multi-agent.md](playbooks/multi-agent.md) |
 
-`review this agent architecture` opens `playbooks/getting-started.md`. A user phrase that is only the formula stays on this file.
+`review this agent architecture` opens `playbooks/getting-started.md`.
 
 ## Non-negotiables
 

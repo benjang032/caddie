@@ -1,6 +1,6 @@
 # evaluation-driven-agent-improvement
 
-use_when
+## Use when
 
 - which model should we use
 - did this harness change actually help
@@ -16,11 +16,13 @@ use_when
 
 Copy these steps into the todolist before reasoning.
 
-## 0. Name the data shape
+## Steps
 
-Lookup `references/data-shapes.md` for `playbooks/evaluating-agents.md`. The unit is a five-component env plus a first-error record. Dataset, resettable state, atomic tools, rubric, and protocol sit on the env. The first-error record sits on every failed trajectory. Refuse to write scoring logic until both are named.
+### 0. Name the data shape
 
-## 1. Define success
+Look up [data shapes](../references/data-shapes.md) for `playbooks/evaluating-agents.md`. The unit is a five-component env plus a first-error record. Dataset, resettable state, atomic tools, rubric, and protocol sit on the env. The first-error record sits on every failed trajectory. Refuse to write scoring logic until both are named.
+
+### 1. Define success
 
 Name one metric, one business bar, and a k protocol. Exploration and demos use Pass@k or Best@k. Side-effecting work uses Pass^k and counts vetoes as fails. State whether k is independent samples of one task or k consecutive jobs. Map the raw fraction onto the cost of a miss before calling the system usable.
 
@@ -28,7 +30,7 @@ Check. The report prints metric name, k, sampling protocol, sandbox or rollback 
 
 If the check fails, open `lessons/07-evaluating-agents.md` cluster `pass-at-k-ceiling` (source-ids pass-at-k-ceiling, pass-hat-k-reliability, best-at-k-for-scores, declare-k-and-protocol, no-retry-until-pass-with-side-effects, score-needs-business-bar, metrics-diverge-with-p-and-k).
 
-## 2. Stand up the five components
+### 2. Stand up the five components
 
 Reset state before every trial. Store ticket, init, criteria, and simulator spec (or an omitted-simulator mark) in one record. Keep tools atomic. Write check layers plus an aggregator. Write stop signal, turn cap, and patience failure.
 
@@ -38,7 +40,7 @@ If the check fails, open `lessons/07-evaluating-agents.md` cluster `five-compone
 
 Pick env class from `verifiers-env-type-table`. HCI keeps a spec-driven simulator. Tool-only work drops the simulator.
 
-## 3. Fill the dataset
+### 3. Fill the dataset
 
 Draw from a public technique bench, a domain business set, and attributed production traces. Clone design choices (capability, source, environment actor, verifier). Do not import a foreign headline score as a ship gate. Public benches screen. The business set decides. Production misses become the majority over time.
 
@@ -48,7 +50,7 @@ If the check fails, open `lessons/07-evaluating-agents.md` cluster `benchmark-de
 
 Add parameterized templates, canaries, difficulty bands, and policy traps before treating the set as official.
 
-## 4. Score with assertions first
+### 4. Score with assertions first
 
 Keep every machine-checkable fact as an assertion in CI. Add a rubric and heterogeneous judges only on dimensions with no unique state or keyword test. Ignore the agent's done sentence. Require FAIL_TO_PASS and PASS_TO_PASS on patches. Prefer an unforgeable environment artifact.
 
@@ -56,7 +58,7 @@ Check. No CI dimension that has a code oracle is scored only by an LLM. A veto-f
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `deterministic-when-possible` and `judge-against-expert-rubric` (source-ids deterministic-when-possible, verify-facts-not-self-report, reserve-llm-judge-for-uncheckable, verifiability-spectrum, fail-to-pass-plus-pass-to-pass, unforgeable-execution-checks, judge-against-expert-rubric, heterogeneous-multi-judge, goodhart-same-family-judge, rubric-weights-and-veto).
 
-## 5. Attribute the first error
+### 5. Attribute the first error
 
 Walk each fail from the start. Record the earliest unacceptable step that explains later misses. Store a structured record (step, class, evidence, primary versus consequence, recoverability, confidence). Run cheap rules before a localizer model. For mixed documents, parse scoped spans before blaming a quote or an old_string miss.
 
@@ -64,7 +66,7 @@ Check. Every failed trace has `first_error_step` and a schema-valid record. A fe
 
 If the check fails, open `lessons/07-evaluating-agents.md` cluster `attribute-first-error` (source-ids attribute-first-error, earliest-explains-followers, structured-attribution-record, rules-then-llm, code-block-is-protected-span, comment-quotes-are-own-span, scoped-span-permissions, silent-failure-attribution, copy-pipeline-first-divergence).
 
-## 6. Mint regressions
+### 6. Mint regressions
 
 From those records, add end-to-end tasks for whole-task capability and prefix tasks that freeze state just before the first error. Score an acceptable-action set, not one gold call. Split obtain (did the fact appear) from apply (was the fact used on the next decision).
 
@@ -72,7 +74,7 @@ Check. Each domain has at least one e2e in CI. Each prefix task has allowed and 
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `e2e-regression` and `obtain-vs-apply` (source-ids e2e-regression, prefix-regression, acceptable-action-set, class-to-regression-mapping, obtain-vs-apply).
 
-## 7. Compare configs
+### 7. Compare configs
 
 Run both arms on the same tasks and seeds. Use a paired test. Publish 3-5 seed spread on official claims. Compute standard error before celebrating a few-point gap. Correct for multiple comparisons when screening many ideas. Ship only a gap that beats noise, survives the pair, and reproduces.
 
@@ -80,7 +82,7 @@ Check. The comparison notebook is paired. Official rows show seed count ≥3 or 
 
 If the check fails, open `lessons/07-evaluating-agents.md` cluster `paired-test-same-tasks` (source-ids paired-test-same-tasks, compute-standard-error, multi-seed-spread, grow-n-for-small-effects, correct-multiple-comparisons, ship-only-reproducible-gaps).
 
-## 8. Debug the instrument first
+### 8. Debug the instrument first
 
 If scores drop, inspect resource kills, verifier diffs, and task drift before editing the agent. Then cluster misses by capability tag. Record one span tree per task so the next incident is not a chat paste.
 
@@ -88,7 +90,7 @@ Check. The incident note has an eval-health section completed before an agent co
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `check-eval-harness-first` and `span-tree-per-task` (source-ids check-eval-harness-first, cluster-failures, four-stages-trust, four-stage-eval-system, span-tree-per-task, traces-become-eval-assets).
 
-## 9. One variable, then a larger gate
+### 9. One variable, then a larger gate
 
 Test the cheapest one-variable hypothesis. Hold model, tasks, seed, step limit, and env fixed. A slice may authorize only the next larger test. For cache and compression, run the four-arm matrix on the local workflow. Never add isolated savings.
 
@@ -96,7 +98,7 @@ Check. Each experiment row lists exactly one changed field. The writeup says sli
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `evaluate-model-plus-harness`, `slice-is-not-system-score`, and `four-arm-cost-matrix` (source-ids evaluate-model-plus-harness, model-swap-locates-bottleneck, ablation-disables-one-component, change-one-variable-at-a-time, slice-is-not-system-score, slice-gates-full-rerun, four-arm-cost-matrix, do-not-sum-isolated-savings).
 
-## 10. Keep product eval machinery
+### 10. Keep product eval machinery
 
 Keep ablation flags, A/B guardrails, two-layer feature flags, prompt CI, and typed analytics in the product. Gate the experiment on the target metric, not on the knob being turned. Abort if guardrails regress.
 
@@ -106,7 +108,7 @@ Check. The experiment card has separate mechanism and target fields and the ship
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `mechanism-vs-target` and `typed-safe-analytics` (source-ids mechanism-vs-target, guardrail-metrics, flags-are-first-class, prompt-ci-regression, typed-safe-analytics, privacy-in-from-start).
 
-## 11. Reuse the env for training
+### 11. Reuse the env for training
 
 When a train job starts, reuse validators as rewards. Add deterministic reset, parallelism, and domain randomization. Raise interaction count so configs cannot be memorized.
 
@@ -118,8 +120,8 @@ If the check fails, open `lessons/07-evaluating-agents.md` cluster `sim-for-post
 
 ## Open next
 
-`playbooks/post-training.md` after `sim-for-post-training` and `validator-as-reward` hold. Diagnose foundation, protocol, or policy there. Do not name a trainer from an eval score alone.
+- [Post-training](post-training.md) after `sim-for-post-training` and `validator-as-reward` hold. Diagnose foundation, protocol, or policy there. Do not name a trainer from an eval score alone.
 
-## Reply shape
+## Reply
 
 State what changed in the env or the report, what metric and decision rule were chosen, and what remains open (instrument health, next gate, or a train handoff).

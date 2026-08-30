@@ -1,14 +1,19 @@
 # expand-observation-action-timing
 
-Use when the world should wake the agent, or when adding voice, computer use, robotics, barge-in, GUI grounding, virtual identity, action chunking, VLA, full-duplex, or an event-driven loop.
+## Use when
 
-Copy these steps into the todolist before reasoning. Name the data shape before any loop or tool change. If a check fails, open `lessons/06-interaction.md` and the named cluster `source-ids`.
+- the world should wake the agent
+- adding voice, computer use, robotics, barge-in, GUI grounding, virtual identity, action chunking, VLA, full-duplex, or an event-driven loop
 
-## 0. Name the data shape
+## Steps
 
-The shape is an event stream consumed at tool-boundary safe points. Look up `playbooks/interaction.md` in `references/data-shapes.md`. Do not write a consumer, cancel path, or actuator until that name is on the page.
+Copy these steps into the todolist before reasoning. Name the data shape before any loop or tool change. If a check fails, open [lesson 06](../lessons/06-interaction.md) and the named cluster `source-ids`.
 
-## 1. Inventory observe and act
+### 0. Name the data shape
+
+The shape is an event stream consumed at tool-boundary safe points. Look up [the interaction row](../references/data-shapes.md) in data shapes. Do not write a consumer, cancel path, or actuator until that name is on the page.
+
+### 1. Inventory observe and act
 
 Inventory observe and act on content, modality, and timing. Name the timescale.
 
@@ -18,7 +23,7 @@ Check. An architecture note has a content / modality / timing table for observe 
 
 Fail. Open `lessons/06-interaction.md` cluster `axes-content-modality-timing`. source-ids `expand-spaces-beyond-turns`, `axes-content-modality-timing`, `axes-four-timescales`.
 
-## 2. Install one event stream
+### 2. Install one event stream
 
 Install one event stream and consume only at safe points. Add push channels where heartbeat is too slow.
 
@@ -28,7 +33,7 @@ Check. Ingress metrics show a push handler for at least one non-timer source. A 
 
 Fail. Open `lessons/06-interaction.md` clusters `async-event-stream-not-poll` and `events-safe-point-loop`. source-ids `async-event-stream-not-poll`, `openclaw-time-driven-gap`, `events-safe-point-loop`.
 
-## 3. Split trigger tools from talk tools
+### 3. Split trigger tools from talk tools
 
 Split event-trigger tools (timer, monitor, channel) from user-communication tools. Filter wakes and send rich payloads.
 
@@ -38,7 +43,7 @@ Check. Each trigger schema documents filters and a payload with first-decision i
 
 Fail. Open `lessons/06-interaction.md` cluster `evt-tools-filters-payloads`. source-ids `evt-tools-filters-payloads`, `comms-dedicated-not-raw`, `comms-channel-and-reengage`.
 
-## 4. Default to virtual identity
+### 4. Default to virtual identity
 
 Default to virtual identity and a sandbox. Use HITL remote login only when the holder must appear. Pass files as shared paths.
 
@@ -48,7 +53,7 @@ Check. Runtime config shows agent-owned credentials as default. Process mounts s
 
 Fail. Open `lessons/06-interaction.md` cluster `identity-virtual-default`. source-ids `identity-virtual-default`, `identity-isolate-runtime`, `identity-antibot-and-hitl`, `identity-shared-fs`.
 
-## 5. Route urgent, routine, and parallel
+### 5. Route urgent, routine, and parallel
 
 Route urgent, routine, and parallel events. Hard-code typed urgency. Classify only ambiguous text from structured fields.
 
@@ -58,7 +63,7 @@ Check. Three fixtures (stop, extra constraint, weather) take cancel, queue, and 
 
 Fail. Open `lessons/06-interaction.md` cluster `events-urgency-taxonomy`. source-ids `events-cancel-queue-parallel`, `events-urgency-taxonomy`, `events-hybrid-router`.
 
-## 6. Keep paired trajectories
+### 6. Keep paired trajectories
 
 Keep paired trajectories. Placeholder only on true interrupt. Prefer initiate plus completion events. Number batch items.
 
@@ -68,7 +73,7 @@ Check. An interrupt trace is schema-valid. A non-urgent note during a tool does 
 
 Fail. Open `lessons/06-interaction.md` clusters `events-placeholder-never-fake` and `syncfmt-five-rules`. source-ids `events-placeholder-never-fake`, `syncfmt-five-rules`, `syncfmt-initiate-complete`, `syncfmt-status-bar-batch`.
 
-## 7. Voice trade
+### 7. Voice trade
 
 For voice, pick cascade, Omni, or full-duplex as a trade. Stream perception if still cascaded. Split speech-path fusion from cognitive fast/slow. Gate irreversible speech-side tools.
 
@@ -80,7 +85,7 @@ Check. An ADR names one paradigm and its accepted limit. Fast-stream fixtures ne
 
 Fail. Open `lessons/06-interaction.md` clusters `voice-three-paradigms` and `cog-two-dimensions`. source-ids `voice-three-paradigms`, `cog-two-dimensions`, `cog-s1-contradiction`, `cog-two-e2e-meanings`.
 
-## 8. GUI reconfirm
+### 8. GUI reconfirm
 
 For GUIs, run perceive-think-act with reconfirm. Prefer DOM or a11y ids, then SoM, then aspect-matched coordinates. Add AOI keyframes, gated ASR, and captions. Predict checkable state before irreversible clicks.
 
@@ -92,7 +97,7 @@ Check. Each step stores a post-action frame (or hash) and a match bit. Release c
 
 Fail. Open `lessons/06-interaction.md` clusters `cu-perceive-think-act`, `cu-grounding-three-routes`, and `cu-world-predict-state`. source-ids `cu-perceive-think-act`, `cu-grounding-three-routes`, `cu-world-predict-state`.
 
-## 9. Robot five layers
+### 9. Robot five layers
 
 For robots, split five layers. Expose observe, pick, place, verify, stop. Chunk only to hide infer. Rank with a short-horizon world model. Accept only from a fresh camera. Keep hardware e-stop.
 
@@ -104,7 +109,7 @@ Check. A rate diagram shows five layers. A passing episode has `verify_state` af
 
 Fail. Open `lessons/06-interaction.md` clusters `robot-five-layer-stack`, `robot-five-tool-contract`, and `robot-action-chunking`. source-ids `robot-five-layer-stack`, `robot-five-tool-contract`, `robot-action-chunking`, `robot-predict-not-accept`.
 
-## 10. Grade reversibility and eval the loop
+### 10. Grade reversibility and eval the loop
 
 Grade tools by reversibility. Set cancel latency to the harm clock. Eval loops, not one-shot captions.
 
@@ -116,7 +121,7 @@ Fail. Open `lessons/06-interaction.md` cluster `summary-safe-point-density`. sou
 
 ## Open next
 
-Open `playbooks/evaluating-agents.md`. Do not open a second lesson file to start.
+[Evaluating agents](evaluating-agents.md). Do not open a second lesson file to start.
 
 ## Reply
 
