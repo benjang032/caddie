@@ -1,5 +1,5 @@
 ---
-name: caddy
+name: caddie
 description: >-
   Build, review, or improve AI agents and their harnesses: context, tools,
   memory or RAG, evaluation, post-training, continual evolution, and
@@ -11,9 +11,9 @@ description: >-
   curriculum.
 ---
 
-# Caddy
+# Caddie
 
-*Your model can swing. Caddy picks the club.*
+*Your agent's game-day coach for building better agents.*
 
 Instructional skill distilled from Bojie Li, *AI Agents in Depth* (Apache-2.0, [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)). Original agent-facing rules. Not a reprint.
 

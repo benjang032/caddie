@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL_NAME = "caddy"
+SKILL_NAME = "caddie"
 PLAYBOOKS = [
     "getting-started.md",
     "context-engineering.md",

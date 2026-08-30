@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="assets/caddy-logo.png" width="300" alt="Caddy, a golf caddy carrying a bag of clubs">
+  <img src="assets/caddie-logo.png" width="300" alt="Caddie, a golf caddie carrying a bag of clubs">
 </p>
 
-<h1 align="center">Caddy</h1>
+<h1 align="center">Caddie</h1>
 
 <p align="center">
-  <em>Your model can swing. Caddy picks the club.</em>
+  <em>Your agent's game-day coach for building better agents.</em>
 </p>
 
 <p align="center">
-  <a href="https://github.com/benjang032/caddy/stargazers"><img src="https://img.shields.io/github/stars/benjang032/caddy?style=flat-square&color=111111&label=stars" alt="GitHub stars"></a>
+  <a href="https://github.com/benjang032/caddie/stargazers"><img src="https://img.shields.io/github/stars/benjang032/caddie?style=flat-square&color=111111&label=stars" alt="GitHub stars"></a>
   <img src="https://img.shields.io/badge/playbooks-10-111111?style=flat-square" alt="10 playbooks">
   <img src="https://img.shields.io/badge/lessons-12-111111?style=flat-square" alt="12 lessons">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-111111?style=flat-square" alt="Apache 2.0 license"></a>
@@ -17,38 +17,38 @@
 
 Models are getting better at swinging. They still choose the wrong club.
 
-Caddy is a Codex skill for building and reviewing AI agents that survive contact with the real world. It handles the work around the model: context, tools, memory, verification, evaluation, training, and multi-agent design.
+Caddie is a Codex skill for building and reviewing AI agents that survive contact with the real world. It handles the work around the model: context, tools, memory, verification, evaluation, training, and multi-agent design.
 
 It does not reach for every club in the bag. It routes the job to the smallest useful lesson or playbook, then requires the agent to show its evidence.
 
 ## Install
 
 ```bash
-git clone https://github.com/benjang032/caddy.git "${CODEX_HOME:-$HOME/.codex}/skills/caddy"
+git clone https://github.com/benjang032/caddie.git "${CODEX_HOME:-$HOME/.codex}/skills/caddie"
 ```
 
 Restart Codex, then call the skill explicitly:
 
 ```text
-$caddy review this agent architecture
+$caddie review this agent architecture
 ```
 
 Update later with:
 
 ```bash
-git -C "${CODEX_HOME:-$HOME/.codex}/skills/caddy" pull
+git -C "${CODEX_HOME:-$HOME/.codex}/skills/caddie" pull
 ```
 
 ## Call your shot
 
 ```text
-$caddy design a support agent with safe refund tools and a real completion check
+$caddie design a support agent with safe refund tools and a real completion check
 
-$caddy review this RAG pipeline for context pollution, stale memory, and weak evals
+$caddie review this RAG pipeline for context pollution, stale memory, and weak evals
 
-$caddy decide whether this workflow needs multiple agents or one isolated subtask
+$caddie decide whether this workflow needs multiple agents or one isolated subtask
 
-$caddy explain when SFT, RL, or better scaffolding is the right intervention
+$caddie explain when SFT, RL, or better scaffolding is the right intervention
 ```
 
 A quick definition stays quick. A build or review opens the matching playbook, turns its steps into a working checklist, and follows the evidence.
@@ -83,7 +83,7 @@ Each playbook points to the exact lesson cluster it needs. The root skill carrie
 
 The full operating rules live in [SKILL.md](SKILL.md). Supporting references cover [data shapes](references/data-shapes.md), [failure modes](references/failure-modes.md), [principles](references/principles.md), and [design tensions](references/tensions.md).
 
-## Why Caddy exists
+## Why Caddie exists
 
 At implementation time, an agent is:
 
@@ -97,21 +97,21 @@ In production, it is:
 Model + Harness
 ```
 
-The harness is where demos become systems: context management, tool boundaries, constraints, verification, and correction. Caddy keeps the model focused on the shot while making those boundaries explicit.
+The harness is where demos become systems: context management, tool boundaries, constraints, verification, and correction. Caddie keeps the model focused on the shot while making those boundaries explicit.
 
 The skill bundle itself ships no SDK, requests no API key, and sends no telemetry. It is a routed, structurally validated set of Markdown instructions.
 
 ## Repository map
 
 ```text
-caddy/
+caddie/
 ├── SKILL.md             # router, formulas, non-negotiables
 ├── agents/openai.yaml   # Codex display metadata and explicit invocation
 ├── playbooks/           # 10 build and review procedures
 ├── lessons/             # 12 compact curriculum chapters
 ├── references/          # principles, shapes, failures, tensions, source
 ├── scripts/             # structural bundle validator
-└── assets/              # Caddy mascot
+└── assets/              # Caddie mascot
 ```
 
 Run the validator after an edit:
@@ -122,6 +122,6 @@ python3 scripts/validate-bundle.py
 
 ## Source and license
 
-Caddy is original agent-facing instructional material distilled from Bojie Li's [*AI Agents in Depth*](https://github.com/bojieli/ai-agent-book). It is not a reprint. Detailed attribution lives in [references/source.md](references/source.md).
+Caddie is original agent-facing instructional material distilled from Bojie Li's [*AI Agents in Depth*](https://github.com/bojieli/ai-agent-book). It is not a reprint. Detailed attribution lives in [references/source.md](references/source.md).
 
 Licensed under [Apache License 2.0](LICENSE).
