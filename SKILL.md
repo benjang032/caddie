@@ -1,7 +1,7 @@
 ---
-name: ai-agents-in-depth
+name: caddy
 description: >-
-  Design, review, or improve LLM agents and their harnesses: context, tools,
+  Build, review, or improve AI agents and their harnesses: context, tools,
   memory or RAG, evaluation, post-training, continual evolution, and
   multi-agent systems. Use for substantive agent architecture or implementation
   work, and for targeted technical questions about ReAct, prompt or KV-cache
@@ -11,7 +11,9 @@ description: >-
   curriculum.
 ---
 
-# AI Agents in Depth
+# Caddy
+
+*Your model can swing. Caddy picks the club.*
 
 Instructional skill distilled from Bojie Li, *AI Agents in Depth* (Apache-2.0, [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)). Original agent-facing rules. Not a reprint.
 

@@ -1,6 +1,6 @@
 # Source
 
-This skill bundle is original instructional material for coding agents. It is distilled from:
+This skill bundle is original instructional material for AI agents. It is distilled from:
 
 - Bojie Li, *AI Agents in Depth: Design Principles and Engineering Practice*
 - English markdown in [`book-en/`](https://github.com/bojieli/ai-agent-book/tree/main/book-en)
