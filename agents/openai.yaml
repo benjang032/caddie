@@ -1,5 +1,5 @@
 interface:
-  display_name: "Caddie"
+  display_name: "caddie"
   short_description: "Build AI agents that can prove they finished"
   icon_small: "./assets/caddie-logo.png"
   icon_large: "./assets/caddie-logo.png"
