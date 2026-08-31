@@ -58,7 +58,13 @@ Check. No CI dimension that has a code oracle is scored only by an LLM. A veto-f
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `deterministic-when-possible` and `judge-against-expert-rubric` (source-ids deterministic-when-possible, verify-facts-not-self-report, reserve-llm-judge-for-uncheckable, verifiability-spectrum, fail-to-pass-plus-pass-to-pass, unforgeable-execution-checks, judge-against-expert-rubric, heterogeneous-multi-judge, goodhart-same-family-judge, rubric-weights-and-veto).
 
-### 5. Attribute the first error
+### 5. Reconstruct the decision-time information flow
+
+Before assigning blame, name every model, agent, runtime, and handoff in the failed path. For each boundary, record the actor or component, expected input, actual decision-time input, output produced, output delivered, boundary transformation, and supporting artifact. A runtime possessing a result does not mean the next model saw it, and a model seeing a result does not mean the terminal handoff carried it to the parent.
+
+Check. Every claim that a component knew, saw, or was blind to something points to its captured prompt, tool result, or handoff. The table names the first boundary that dropped, summarized, rewrote, or misclassified information, and labels later effects as consequences. If those artifacts are absent, stop attribution and repair observability first.
+
+### 6. Attribute the first error
 
 Walk each fail from the start. Record the earliest unacceptable step that explains later misses. Store a structured record (step, class, evidence, primary versus consequence, recoverability, confidence). Run cheap rules before a localizer model. For mixed documents, parse scoped spans before blaming a quote or an old_string miss.
 
@@ -66,7 +72,7 @@ Check. Every failed trace has `first_error_step` and a schema-valid record. A fe
 
 If the check fails, open `lessons/07-evaluating-agents.md` cluster `attribute-first-error` (source-ids attribute-first-error, earliest-explains-followers, structured-attribution-record, rules-then-llm, code-block-is-protected-span, comment-quotes-are-own-span, scoped-span-permissions, silent-failure-attribution, copy-pipeline-first-divergence).
 
-### 6. Mint regressions
+### 7. Mint regressions
 
 From those records, add end-to-end tasks for whole-task capability and prefix tasks that freeze state just before the first error. Score an acceptable-action set, not one gold call. Split obtain (did the fact appear) from apply (was the fact used on the next decision).
 
@@ -74,7 +80,7 @@ Check. Each domain has at least one e2e in CI. Each prefix task has allowed and 
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `e2e-regression` and `obtain-vs-apply` (source-ids e2e-regression, prefix-regression, acceptable-action-set, class-to-regression-mapping, obtain-vs-apply).
 
-### 7. Compare configs
+### 8. Compare configs
 
 Run both arms on the same tasks and seeds. Use a paired test. Publish 3-5 seed spread on official claims. Compute standard error before celebrating a few-point gap. Correct for multiple comparisons when screening many ideas. Ship only a gap that beats noise, survives the pair, and reproduces.
 
@@ -82,7 +88,7 @@ Check. The comparison notebook is paired. Official rows show seed count ≥3 or 
 
 If the check fails, open `lessons/07-evaluating-agents.md` cluster `paired-test-same-tasks` (source-ids paired-test-same-tasks, compute-standard-error, multi-seed-spread, grow-n-for-small-effects, correct-multiple-comparisons, ship-only-reproducible-gaps).
 
-### 8. Debug the instrument first
+### 9. Debug the instrument first
 
 If scores drop, inspect resource kills, verifier diffs, and task drift before editing the agent. Then cluster misses by capability tag. Record one span tree per task so the next incident is not a chat paste.
 
@@ -90,7 +96,7 @@ Check. The incident note has an eval-health section completed before an agent co
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `check-eval-harness-first` and `span-tree-per-task` (source-ids check-eval-harness-first, cluster-failures, four-stages-trust, four-stage-eval-system, span-tree-per-task, traces-become-eval-assets).
 
-### 9. One variable, then a larger gate
+### 10. One variable, then a larger gate
 
 Test the cheapest one-variable hypothesis. Hold model, tasks, seed, step limit, and env fixed. A slice may authorize only the next larger test. For cache and compression, run the four-arm matrix on the local workflow. Never add isolated savings.
 
@@ -98,7 +104,7 @@ Check. Each experiment row lists exactly one changed field. The writeup says sli
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `evaluate-model-plus-harness`, `slice-is-not-system-score`, and `four-arm-cost-matrix` (source-ids evaluate-model-plus-harness, model-swap-locates-bottleneck, ablation-disables-one-component, change-one-variable-at-a-time, slice-is-not-system-score, slice-gates-full-rerun, four-arm-cost-matrix, do-not-sum-isolated-savings).
 
-### 10. Keep product eval machinery
+### 11. Keep product eval machinery
 
 Keep ablation flags, A/B guardrails, two-layer feature flags, prompt CI, and typed analytics in the product. Gate the experiment on the target metric, not on the knob being turned. Abort if guardrails regress.
 
@@ -108,7 +114,7 @@ Check. The experiment card has separate mechanism and target fields and the ship
 
 If the check fails, open `lessons/07-evaluating-agents.md` clusters `mechanism-vs-target` and `typed-safe-analytics` (source-ids mechanism-vs-target, guardrail-metrics, flags-are-first-class, prompt-ci-regression, typed-safe-analytics, privacy-in-from-start).
 
-### 11. Reuse the env for training
+### 12. Reuse the env for training
 
 When a train job starts, reuse validators as rewards. Add deterministic reset, parallelism, and domain randomization. Raise interaction count so configs cannot be memorized.
 

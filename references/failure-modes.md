@@ -7,6 +7,7 @@ Lookup by symptom. Open the owning playbook. Use the lesson ids as `source-ids` 
 | Memory conflict, stale fact, or missed fragment | memory-knowledge | shared-conflict-stale-miss | Diff the archive write against the source turn. Confirm a conflict field exists. |
 | Coding agent fails and the class is unknown | coding-agent | failure-taxonomy-four-layers | Label model, spec, environment, or infrastructure before retrying. |
 | Score moved and no one knows which step broke | evaluating-agents | attribute-first-error | Find the first bad span. Do not blame the last message. |
+| A result existed, but the next model or parent acted as if it did not | evaluating-agents + multi-agent | attribute-first-error, handoff-package-three-parts | Inspect the exact next decision-time input and terminal handoff. Do not infer knowledge from telemetry or runtime state. |
 | Shared files overwrite or cross-file logic breaks | multi-agent | concurrency-conflict-control | Versioned write rejected on stale read. Semantic merge gate on cross-file work. |
 | Downstream agent amplifies an upstream error | multi-agent | cascading-error-amplification | Reviewer checks raw evidence, not the prior rationale. |
 | Independent agents pick the same name or title | multi-agent | homogeneous-convergence | Vary model, context, or namespace. Treat same-scaffold reviews as correlated. |

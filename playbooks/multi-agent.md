@@ -72,9 +72,11 @@ On failure open `lessons/10-multi-agent.md` clusters `data-plane-control-plane`,
 
 ### 7. Define the handoff schema
 
-Build every transfer from three parts, which are the task with its acceptance criteria, the settled facts and constraints, and references to structured artifacts. Exclude the sender's private reasoning trace, both because it defeats the isolation the handoff was chosen for and because a validator that inherits upstream reasoning inherits the framing it was meant to test.
+Before specifying the desired schema, reconstruct one actual sender-to-receiver path through the harness or transport. Record what the sender or action runtime produced, what the receiving model actually saw at its next decision, and what the terminal handoff carried to the parent. At each edge, identify any dropped, summarized, rewritten, or misclassified information and point to the captured input, result, or handoff rather than inferring knowledge from runtime state or telemetry.
 
-Check. A real handoff payload contains the three parts, carries artifacts as references, and attaches no reasoning trace.
+Then build every transfer from three parts, which are the task with its acceptance criteria, the settled facts and constraints, and references to structured artifacts. Exclude the sender's private reasoning trace, both because it defeats the isolation the handoff was chosen for and because a validator that inherits upstream reasoning inherits the framing it was meant to test.
+
+Check. The reconstruction separately answers whether the producer possessed the result, the receiving model saw it, and the terminal handoff carried it. A real handoff payload contains the three parts, carries artifacts as references, and attaches no reasoning trace.
 On failure open `lessons/10-multi-agent.md` cluster `handoff-package-three-parts`. source-ids: handoff-package-three-parts, metagpt-sop-message-pool, swarm-peer-handoff-cycle-guard, autogen-hybrid-groupchat
 
 ### 8. Install the verifier

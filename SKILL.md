@@ -85,6 +85,7 @@ Multi-topic answer-only questions may open the matching lesson clusters, still w
 - Tools that perceive should bound bytes. Tools that execute should bound blast radius. Never silently rewrite tool arguments.
 - Code is the meta-tool for open-ended work. Closed-domain agents may keep code as one tool among others.
 - No eval, no claim of improvement. Measure the model-plus-harness pair. One variable per comparative run. Ship only a gap that beats paired noise.
+- Diagnose agent failures from decision-time evidence. Name every participating model, agent, runtime, and handoff. At each boundary record the expected and actual input, the output produced and delivered, any transformation, and the supporting artifact. Separate the first broken boundary from downstream consequences. Do not add protocol or state fields until this reconstruction proves they are necessary.
 - SFT copies stable demonstrations and protocol. RL reallocates probability when success already has nonzero mass and the scorer is honest. Mid-train when pass@k is near zero. Do not treat "SFT memorizes, RL generalizes" as a law.
 - Multi-agent is not default. Split for information the producer could not have had, or for context economy. Text-only debate over the same evidence is not a reason.
 - Freeze the approval root. An evolving agent must not rewrite the safety gate that can stop it.
