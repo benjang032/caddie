@@ -1,0 +1,18 @@
+{
+  "name": "caddie",
+  "metadata": {
+    "description": "Focused lessons and evidence-based playbooks for building AI agents."
+  },
+  "owner": {
+    "name": "Ben J",
+    "url": "https://github.com/benjang032"
+  },
+  "plugins": [
+    {
+      "name": "caddie",
+      "description": "Focused lessons and evidence-based playbooks for building AI agents.",
+      "source": "./plugins/caddie-claude",
+      "category": "productivity"
+    }
+  ]
+}

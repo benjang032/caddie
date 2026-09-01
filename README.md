@@ -17,27 +17,77 @@
 
 Models are getting better at swinging. They still choose the wrong club.
 
-Caddie is a Codex skill for building and reviewing AI agents that survive contact with the real world. It handles the work around the model: context, tools, memory, verification, evaluation, training, and multi-agent design.
+Caddie is a portable agent skill for building and reviewing AI agents that survive contact with the real world. It handles the work around the model: context, tools, memory, verification, evaluation, training, and multi-agent design.
 
 It does not reach for every club in the bag. It routes the job to the smallest useful lesson or playbook, then requires the agent to show its evidence.
 
 ## Install
 
+Caddie ships as an instruction-only skill. It needs no API key, package manager, background process, or runtime dependency.
+
+### Claude Code
+
+Run these in your terminal:
+
 ```bash
-git clone https://github.com/benjang032/caddie.git "${CODEX_HOME:-$HOME/.codex}/skills/caddie"
+claude plugin marketplace add benjang032/caddie
+claude plugin install caddie@caddie
 ```
 
-Restart Codex, then call the skill explicitly:
+Then call the namespaced skill in Claude Code:
+
+```text
+/caddie:caddie review this agent architecture
+```
+
+The packaged Claude skill is explicit-only: Claude does not activate it by itself. If `claude plugin` is unavailable, update Claude Code first.
+
+### Codex
+
+Run these in your terminal:
+
+```bash
+codex plugin marketplace add benjang032/caddie
+codex plugin add caddie@caddie
+```
+
+Start a new Codex task, then call the skill explicitly:
 
 ```text
 $caddie review this agent architecture
 ```
 
-Update later with:
+### Gemini CLI
+
+Recent Gemini CLI releases can install the standalone skill directly:
 
 ```bash
-git -C "${CODEX_HOME:-$HOME/.codex}/skills/caddie" pull
+gemini skills install https://github.com/benjang032/caddie
+gemini skills list
 ```
+
+Ask Gemini to use the Caddie skill for the task. Gemini requests confirmation before activating an installed skill.
+
+### Direct Codex install
+
+For Codex versions without plugin marketplace support:
+
+```bash
+git clone https://github.com/benjang032/caddie.git "${CODEX_HOME:-$HOME/.codex}/skills/caddie"
+```
+
+Restart Codex and call `$caddie` explicitly.
+
+### Update or remove
+
+| Host | Update | Remove |
+| --- | --- | --- |
+| Claude Code | `claude plugin update caddie@caddie` | `claude plugin uninstall caddie@caddie` |
+| Codex plugin | `codex plugin marketplace upgrade caddie` | `codex plugin remove caddie@caddie` |
+| Gemini CLI | Uninstall, then run the install command again | `gemini skills uninstall caddie` |
+| Direct Codex clone | `git -C "${CODEX_HOME:-$HOME/.codex}/skills/caddie" pull` | Remove that cloned directory |
+
+After a marketplace update, reload the host or begin a fresh task so it sees the new skill files.
 
 ## Call your shot
 
@@ -105,20 +155,28 @@ The skill bundle itself ships no SDK, requests no API key, and sends no telemetr
 
 ```text
 caddie/
-├── SKILL.md             # router, formulas, non-negotiables
-├── agents/openai.yaml   # Codex display metadata and explicit invocation
-├── playbooks/           # 10 build and review procedures
-├── lessons/             # 12 compact curriculum chapters
-├── references/          # principles, shapes, failures, tensions, source
-├── scripts/             # structural bundle validator
-└── assets/              # Caddie mascot
+├── SKILL.md                 # canonical router and operating rules
+├── agents/openai.yaml       # standalone Codex metadata
+├── playbooks/               # 10 build and review procedures
+├── lessons/                 # 12 compact curriculum chapters
+├── references/              # principles, shapes, failures, tensions, source
+├── plugins/caddie/           # generated Codex plugin package
+├── plugins/caddie-claude/    # generated Claude plugin package
+├── .agents/plugins/          # Codex marketplace index
+├── .claude-plugin/           # Claude marketplace index
+├── scripts/                 # bundle, package, and sync validators
+└── assets/                  # Caddie mascot
 ```
 
-Run the validator after an edit:
+The root bundle is the source of truth. After editing it, refresh the packaged copy and run every structural check:
 
 ```bash
+python3 scripts/sync-plugin-skill.py
 python3 scripts/validate-bundle.py
+python3 scripts/validate-packages.py
 ```
+
+For a release, bump the matching `version` in both host manifests before publishing; the package validator keeps them aligned.
 
 ## Source and license
 

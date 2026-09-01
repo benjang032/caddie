@@ -1,0 +1,31 @@
+{
+  "name": "caddie",
+  "version": "0.1.0",
+  "description": "A game-day coach for building and reviewing AI agents that hold up in the real world.",
+  "author": {
+    "name": "Ben J",
+    "url": "https://github.com/benjang032"
+  },
+  "homepage": "https://github.com/benjang032/caddie",
+  "repository": "https://github.com/benjang032/caddie",
+  "license": "Apache-2.0",
+  "keywords": ["ai-agents", "agent-architecture", "evaluation", "mcp"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Caddie",
+    "shortDescription": "Coach for agent architecture and evaluation",
+    "longDescription": "Routes agent design, implementation, and review work through focused lessons and evidence-based playbooks.",
+    "developerName": "Ben J",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://github.com/benjang032/caddie",
+    "defaultPrompt": [
+      "Review this agent architecture.",
+      "Design a support agent with safe refund tools.",
+      "Evaluate this RAG pipeline for context pollution."
+    ],
+    "brandColor": "#111111",
+    "composerIcon": "./skills/caddie/assets/caddie-logo.png",
+    "logo": "./skills/caddie/assets/caddie-logo.png"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "caddie",
+  "interface": {
+    "displayName": "Caddie"
+  },
+  "plugins": [
+    {
+      "name": "caddie",
+      "source": {
+        "source": "local",
+        "path": "./plugins/caddie"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

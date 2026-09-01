@@ -9,6 +9,7 @@ description: >-
   A2A, or model drops. Do not use for ordinary software work, routine computer
   use, generic coding questions, or casual definitions that do not require this
   curriculum.
+disable-model-invocation: true
 ---
 
 # Caddie
