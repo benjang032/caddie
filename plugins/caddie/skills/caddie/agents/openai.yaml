@@ -1,10 +1,10 @@
 interface:
-  display_name: "caddie"
-  short_description: "Build AI agents that can prove they finished"
+  display_name: "Caddie"
+  short_description: "Design and review AI agent systems"
   icon_small: "assets/caddie-logo.png"
   icon_large: "assets/caddie-logo.png"
   brand_color: "#111111"
-  default_prompt: "Use $caddie to design an AI agent that can prove it finished the job."
+  default_prompt: "Use $caddie to review this AI agent architecture and identify missing evidence."
 
 policy:
   allow_implicit_invocation: false

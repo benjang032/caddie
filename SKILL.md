@@ -1,21 +1,21 @@
 ---
 name: caddie
 description: >-
-  Build, review, or improve AI agents and their harnesses: context, tools,
-  memory or RAG, evaluation, post-training, continual evolution, and
-  multi-agent systems. Use for substantive agent architecture or implementation
-  work, and for targeted technical questions about ReAct, prompt or KV-cache
-  design, MCP/tool design, coding agents, interaction, evaluation, SFT/RL,
-  A2A, or model drops. Do not use for ordinary software work, routine computer
-  use, generic coding questions, or casual definitions that do not require this
-  curriculum.
+  Design, implement, or review AI agent systems using focused lessons and
+  evidence-based checklists. Use for substantive work on context, tools,
+  memory or RAG, coding agents, interaction loops, evaluation, post-training,
+  continual improvement, or multi-agent systems. Do not use for ordinary
+  application code, routine computer use, generic coding questions, or casual
+  agent definitions.
 ---
 
 # Caddie
 
-*Your agent's game-day coach for building better agents.*
+*Agent engineering guidance for coding agents.*
 
 Instructional skill distilled from Bojie Li, *AI Agents in Depth* (Apache-2.0, [bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)). Original agent-facing rules. Not a reprint.
+
+Caddie contains one routing file, 12 lessons, and 10 playbooks. The root instructions tell the host which lesson or playbook to open for the current question or task. Caddie does not provide an agent runtime, framework, tools, or model access.
 
 ## Start
 

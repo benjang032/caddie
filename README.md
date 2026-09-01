@@ -5,7 +5,7 @@
 <h1 align="center">Caddie</h1>
 
 <p align="center">
-  <em>Your agent's game-day coach for building better agents.</em>
+  <em>Agent engineering guidance for coding agents.</em>
 </p>
 
 <p align="center">
@@ -15,11 +15,13 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-111111?style=flat-square" alt="Apache 2.0 license"></a>
 </p>
 
-Models are getting better at swinging. They still choose the wrong club.
+Your coding agent can write agent code. The harder part is choosing the system around the model.
 
-Caddie is a portable agent skill for building and reviewing AI agents that survive contact with the real world. It handles the work around the model: context, tools, memory, verification, evaluation, training, and multi-agent design.
+Caddie is a portable skill for designing, implementing, and reviewing AI agent systems. It covers context, tools, memory, verification, evaluation, post-training, and multi-agent design.
 
-It does not reach for every club in the bag. It routes the job to the smallest useful lesson or playbook, then requires the agent to show its evidence.
+A quick definition stays in the root skill. A scoped agent-engineering question opens only the relevant lesson sections. Implementation or review work selects a playbook and turns its checks into a working list.
+
+Caddie is not an agent runtime or framework. It supplies instructions and review criteria to the coding agent you already use.
 
 ## Install
 
@@ -89,7 +91,7 @@ Restart Codex and call `$caddie` explicitly.
 
 After a marketplace update, reload the host or begin a fresh task so it sees the new skill files.
 
-## Call your shot
+## Try it
 
 ```text
 $caddie design a support agent with safe refund tools and a real completion check
@@ -101,9 +103,9 @@ $caddie decide whether this workflow needs multiple agents or one isolated subta
 $caddie explain when SFT, RL, or better scaffolding is the right intervention
 ```
 
-A quick definition stays quick. A build or review opens the matching playbook, turns its steps into a working checklist, and follows the evidence.
+A build or review opens the matching playbook, turns its steps into a working checklist, and records the evidence for each decision.
 
-## What is in the bag
+## Playbooks
 
 | Job | Playbook |
 | --- | --- |
@@ -120,7 +122,7 @@ A quick definition stays quick. A build or review opens the matching playbook, t
 
 Each playbook points to the exact lesson cluster it needs. The root skill carries the routing, formulas, and rules that must stay visible throughout the job.
 
-## The yardage book
+## Operating rules
 
 - Name the data shape before writing agent logic.
 - The producer may not approve its own done.
@@ -147,9 +149,9 @@ In production, it is:
 Model + Harness
 ```
 
-The harness is where demos become systems: context management, tool boundaries, constraints, verification, and correction. Caddie keeps the model focused on the shot while making those boundaries explicit.
+The harness is where demos become systems: context management, tool boundaries, constraints, verification, and correction. Caddie makes those design choices explicit and reviewable.
 
-The skill bundle itself ships no SDK, requests no API key, and sends no telemetry. It is a routed, structurally validated set of Markdown instructions.
+The skill bundle ships no runtime, SDK, tools, or model access. It requests no API key and sends no telemetry. It is a routed, structurally validated set of Markdown instructions.
 
 ## Repository map
 

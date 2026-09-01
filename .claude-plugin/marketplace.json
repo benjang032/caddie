@@ -1,7 +1,7 @@
 {
   "name": "caddie",
   "metadata": {
-    "description": "Focused lessons and evidence-based playbooks for building AI agents."
+    "description": "Lessons and review playbooks for engineering AI agent systems."
   },
   "owner": {
     "name": "Ben J",
@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "caddie",
-      "description": "Focused lessons and evidence-based playbooks for building AI agents.",
+      "description": "Lessons and review playbooks for engineering AI agent systems.",
       "source": "./plugins/caddie-claude",
       "category": "productivity"
     }

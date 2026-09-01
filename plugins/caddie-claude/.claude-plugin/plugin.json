@@ -1,7 +1,7 @@
 {
   "name": "caddie",
-  "version": "0.1.0",
-  "description": "A game-day coach for building and reviewing AI agents that hold up in the real world.",
+  "version": "0.1.1",
+  "description": "Instructional playbooks for designing and reviewing AI agent systems.",
   "author": {
     "name": "Ben J",
     "url": "https://github.com/benjang032"
